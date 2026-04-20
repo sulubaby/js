@@ -2,18 +2,23 @@ function insertionSortAnalyzer(arr, comparator) {
   let iterations = 0;
   let swaps = 0;
 
+  for (let i = 1; i < arr.length; i++) {
+    let j = i;
 
-  for (let i = 0; i < a.length - 1; i++) {
-    for (let j = 0; j < a.length - 1 - i; j++) {
+    while (j > 0) {
       iterations++;
 
-      if (comparator(a[j], a[j + 1]) > 0) {
-        // ✅ keep destructuring swap
-        [a[j], a[j + 1]] = [a[j + 1], a[j]];
+      if (comparator(arr[j - 1], arr[j]) > 0) {
+        [arr[j - 1], arr[j]] = [arr[j], arr[j - 1]];
         swaps++;
+      } else {
+        break;
       }
+
+      j--;
     }
   }
 
-  return { sortedArray: a, iterations, swaps };
+  return { sortedArray: arr, iterations, swaps };
 }
+``
