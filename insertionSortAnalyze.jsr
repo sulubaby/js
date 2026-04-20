@@ -1,0 +1,19 @@
+function insertionSortAnalyzer(arr, comparator) {
+  let iterations = 0;
+  let swaps = 0;
+
+
+  for (let i = 0; i < a.length - 1; i++) {
+    for (let j = 0; j < a.length - 1 - i; j++) {
+      iterations++;
+
+      if (comparator(a[j], a[j + 1]) > 0) {
+        // ✅ keep destructuring swap
+        [a[j], a[j + 1]] = [a[j + 1], a[j]];
+        swaps++;
+      }
+    }
+  }
+
+  return { sortedArray: a, iterations, swaps };
+}
